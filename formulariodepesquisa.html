@@ -1,0 +1,84 @@
+<nav>
+    <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="nirvana.html">Nirvana</a></li>
+        <li><a href="pearl_jam.html">Pearl Jam</a></li>
+        <li><a href="black_sabbath.html">Black Sabbath</a></li>
+        <li><a href="led_zeppelin.html">Led Zeppelin</a></li>
+        <li><a href="radiohead.html">Radiohead</a></li>
+        <li><a href="formulario.html">Cadastro</a></li>
+        <!-- Formulário de pesquisa -->
+        <li>
+            <form id="searchForm" onsubmit="searchBand(event)">
+                <input type="text" id="searchInput" placeholder="Pesquisar..." required>
+                <button type="submit" class="search-btn"><i class="fas fa-search"></i> Pesquisa</button>
+            </form>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    // Mapeamento de palavras-chave para URLs
+    const bandPages = {
+        // Nirvana - Palavras-chave relacionadas
+        "Kurt": "nirvana.html",
+        "Kurt Cobain": "nirvana.html",
+        "Nirvana": "nirvana.html",
+        "Smells Like Teen Spirit": "nirvana.html",
+        "Come As You Are": "nirvana.html",
+        "Grunge": "nirvana.html",
+        
+        // Pearl Jam - Palavras-chave relacionadas
+        "Eddie": "pearl_jam.html",
+        "Eddie Vedder": "pearl_jam.html",
+        "Pearl Jam": "pearl_jam.html",
+        "Alive": "pearl_jam.html",
+        "Jeremy": "pearl_jam.html",
+        "Black": "pearl_jam.html",
+        
+        // Black Sabbath - Palavras-chave relacionadas
+        "Ozzy": "black_sabbath.html",
+        "Ozzy Osbourne": "black_sabbath.html",
+        "Black Sabbath": "black_sabbath.html",
+        "Iron Man": "black_sabbath.html",
+        "Paranoid": "black_sabbath.html",
+        "Heavy Metal": "black_sabbath.html",
+        
+        // Led Zeppelin - Palavras-chave relacionadas
+        "Led Zeppelin": "led_zeppelin.html",
+        "Jimmy Page": "led_zeppelin.html",
+        "Robert Plant": "led_zeppelin.html",
+        "Stairway to Heaven": "led_zeppelin.html",
+        "Whole Lotta Love": "led_zeppelin.html",
+        "Rock": "led_zeppelin.html",
+        
+        // Radiohead - Palavras-chave relacionadas
+        "Radiohead": "radiohead.html",
+        "Thom Yorke": "radiohead.html",
+        "Creep": "radiohead.html",
+        "OK Computer": "radiohead.html",
+        "Paranoid Android": "radiohead.html",
+        "Pyramid Song": "radiohead.html",
+    };
+
+    // Função de pesquisa
+    function searchBand(event) {
+        event.preventDefault(); // Impede o envio do formulário (evita a recarga da página)
+        
+        // Obtém o valor do campo de pesquisa e remove espaços extras
+        const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+
+        // Verifica se o termo de pesquisa existe no mapeamento de palavras-chave
+        for (let key in bandPages) {
+            // Compara o termo de pesquisa com as palavras-chave (sem diferenciar maiúsculas/minúsculas)
+            if (searchTerm.toLowerCase() === key.toLowerCase()) {
+                // Redireciona o usuário para a página correspondente
+                window.location.href = bandPages[key];
+                return;
+            }
+        }
+
+        // Caso o termo não seja encontrado, mostra um alerta informando ao usuário
+        alert("Banda ou palavra-chave não encontrada. Tente novamente.");
+    }
+</script>

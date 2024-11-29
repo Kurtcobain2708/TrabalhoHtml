@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Link para o Font Awesome (ícones) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Home - Rock Music</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <!-- Menu de navegação para acessar as páginas das bandas -->
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="nirvana.html">Nirvana</a></li>
+                <li><a href="pearl_jam.html">Pearl Jam</a></li>
+                <li><a href="black_sabbath.html">Black Sabbath</a></li>
+                <li><a href="led_zeppelin.html">Led Zeppelin</a></li>
+                <li><a href="radiohead.html">Radiohead</a></li>
+                <li><a href="formulario.html">Cadastro</a></li>
+                <!-- Formulário de Pesquisa -->
+                <li>
+                    <form id="searchForm" onsubmit="searchBand(event)">
+                        <input type="text" id="searchInput" placeholder="Pesquisar...">
+                        <button type="submit" class="search-btn"><i class="fas fa-search"></i> Pesquisa</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção principal com introdução e bandas em destaque -->
+        <section class="hero">
+            <h1>Bem-vindo ao Rock Music</h1>
+            <p>Explore as bandas que marcaram a história do rock.</p>
+        </section>
+
+        <section class="bands">
+            <h2>Bandas Destaques</h2>
+            <div class="band-cards">
+                <!-- Cartões de banda com imagem, título e link para a página da banda -->
+                <div class="card">
+                    <img src="https://singersroom.com/wp-content/uploads/2023/03/Best-Nirvana-Songs-Of-All-Time-scaled.jpg" alt="Nirvana">
+                    <h3>Nirvana</h3>
+                    <p>A banda que definiu o grunge nos anos 90.</p>
+                    <a href="nirvana.html" class="btn">Saiba mais</a>
+                </div>
+                <div class="card">
+                    <img src="https://personaunesp.com.br/wp-content/uploads/2021/08/pearljam2-1024x677.jpg" alt="Pearl Jam">
+                    <h3>Pearl Jam</h3>
+                    <p>Uma das bandas mais influentes do rock alternativo.</p>
+                    <a href="pearl_jam.html" class="btn">Saiba mais</a>
+                </div>
+                <div class="card">
+                    <img src="https://www.udiscovermusic.com/wp-content/uploads/2020/02/Black-Sabbath-GettyImages-74700191.jpg" alt="Black Sabbath">
+                    <h3>Black Sabbath</h3>
+                    <p>Pioneiros do heavy metal.</p>
+                    <a href="black_sabbath.html" class="btn">Saiba mais</a>
+                </div>
+                <div class="card">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx_v4R5IxcoFX7LNm_F2BdNTzaNrF_02f4IMYU6TLN4EuC3llHc_RyM4mXaNi_X3kuEOJsUf5GuPbDlQvOaUZ-nhnhVBAyPXcuZVvaMo9nuHMNuzjW_WDMCxWv0S8BIw-O_MLQQ2oniKQ/s1600/led-zeppelin.jpg" alt="Led Zeppelin">
+                    <h3>Led Zeppelin</h3>
+                    <p>Famosos por suas performances ao vivo.</p>
+                    <a href="led_zeppelin.html" class="btn">Saiba mais</a>
+                </div>
+                <div class="card">
+                    <img src="https://playtusu.com/wp-content/uploads/2019/06/radiohead-2-1310x882.jpg" alt="Radiohead">
+                    <h3>Radiohead</h3>
+                    <p>Inovação musical e letras profundas.</p>
+                    <a href="radiohead.html" class="btn">Saiba mais</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resultados da pesquisa (onde serão mostrados os resultados da busca) -->
+        <section id="searchResults"></section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Rock Music. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mapeamento de palavras-chave para URLs das bandas
+        const bandPages = {
+            // Nirvana: Adiciona as palavras-chave relacionadas a Nirvana
+            "Kurt": "nirvana.html",
+            "Kurt Cobain": "nirvana.html",
+            "Nirvana": "nirvana.html",
+            "Smells Like Teen Spirit": "nirvana.html",
+            "Come As You Are": "nirvana.html",
+            "Grunge": "nirvana.html",
+
+            // Pearl Jam: Adiciona as palavras-chave relacionadas a Pearl Jam
+            "Eddie": "pearl_jam.html",
+            "Eddie Vedder": "pearl_jam.html",
+            "Pearl Jam": "pearl_jam.html",
+            "Alive": "pearl_jam.html",
+            "Jeremy": "pearl_jam.html",
+            "Black": "pearl_jam.html",
+
+            // Black Sabbath: Expandido com base no conteúdo da banda
+            "Black Sabbath": "black_sabbath.html",
+            "Heavy Metal": "black_sabbath.html",
+            "Ozzy": "black_sabbath.html",
+            "Ozzy Osbourne": "black_sabbath.html",
+            "Tony Iommi": "black_sabbath.html",
+            "Witchcraft Destroys Minds & Reaps Souls": "black_sabbath.html",
+            "Paranoid": "black_sabbath.html",
+            "Fairies Wear Boots": "black_sabbath.html",
+            "War Pigs": "black_sabbath.html",
+            "Sabbath Bloody Sabbath": "black_sabbath.html",
+            "Rick Wakeman": "black_sabbath.html",
+            "Technical Ecstasy": "black_sabbath.html",
+            "Ronnie James Dio": "black_sabbath.html",
+            "Dave Walker": "black_sabbath.html",
+            "Sharon Osbourne": "black_sabbath.html",
+            "Geoff Nicholls": "black_sabbath.html",
+            "Quartz": "black_sabbath.html",
+
+            // Led Zeppelin: Adiciona as palavras-chave relacionadas a Led Zeppelin
+            "Led Zeppelin": "led_zeppelin.html",
+            "Jimmy Page": "led_zeppelin.html",
+            "Robert Plant": "led_zeppelin.html",
+            "Stairway to Heaven": "led_zeppelin.html",
+            "Whole Lotta Love": "led_zeppelin.html",
+
+            // Radiohead: Adiciona as palavras-chave relacionadas a Radiohead
+            "Radiohead": "radiohead.html",
+            "Thom Yorke": "radiohead.html",
+            "Creep": "radiohead.html",
+            "OK Computer": "radiohead.html",
+            "Paranoid Android": "radiohead.html",
+            "Pyramid Song": "radiohead.html",
+        };
+
+        // Função de pesquisa que será acionada quando o formulário for enviado
+        function searchBand(event) {
+            event.preventDefault(); // Impede o envio do formulário e recarregamento da página
+            
+            // Obtém o valor do campo de pesquisa e converte para minúsculas
+            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+
+            // Limpa os resultados anteriores de pesquisa
+            document.getElementById('searchResults').innerHTML = '';
+
+            // Variável para verificar se o termo de pesquisa foi encontrado
+            let found = false;
+
+            // Verifica se o termo digitado existe no mapeamento de palavras-chave
+            for (let key in bandPages) {
+                // Se o termo de pesquisa for igual a uma das palavras-chave
+                if (searchTerm.toLowerCase() === key.toLowerCase()) {
+                    found = true; // Marca como encontrado
+                    // Redireciona o usuário para a página da banda correspondente
+                    window.location.href = bandPages[key];
+                    return;
+                }
+            }
+
+            // Se o termo não foi encontrado, exibe uma mensagem de erro
+            if (!found) {
+                document.getElementById('searchResults').innerHTML = '<p>Banda ou palavra-chave não encontrada.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

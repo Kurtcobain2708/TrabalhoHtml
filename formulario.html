@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+    <head>
+        <!--Metadados da página para adequar o uso de caracteres e ajustar a largura/comportamento em dispositivos móveis-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--Aplica a estilização do CSS à página-->
+        <link rel="stylesheet" href="style.css">
+
+        <!--Importa a fonte Roboto do servidor externo Google Fonts em diferentes estilos de peso (400 = regular, 700 = bold)
+        e caso essa demorar para carregar, uma fonte padrão será usada temporariamente até que a Roboto esteja pronta-->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <title>Cadastro - Rock Music</title>
+    </head>
+
+    <body>
+        <!--Cabeçalho do site, onde o nome da página será destacado, nesse caso "Cadastro"-->
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="nirvana.html">Nirvana</a></li>
+                    <li><a href="pearl_jam.html">Pearl Jam</a></li>
+                    <li><a href="black_sabbath.html">Black Sabbath</a></li>
+                    <li><a href="led_zeppelin.html">Led Zeppelin</a></li>
+                    <li><a href="radiohead.html">Radiohead</a></li>
+                    <li><a href="formulario.html" class="active">Cadastro</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--Conteúdo principal-->
+        <main>
+            <div class="container">
+                <h1>Cadastro de Usuário</h1>
+                <form action="processa_cadastro.php" method="post">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" required>
+                
+
+                    <label for="banda">Banda Favorita:</label>
+                    <input type="text" id="banda" name="banda">
+
+                    <label for="sugestao">Sugestões:</label>
+                    <input type="text" id="sugestao" name="sugestao">
+
+                    <button type="submit">Cadastrar</button>
+                </form>
+                <p><a href="index.html">Voltar à Página Inicial</a></p>
+            </div>
+        </main>
+
+        <!--Rodapé-->
+        <footer>
+            <p>&copy; 2024 Rock Music. Todos os direitos reservados.</p>
+        </footer>
+
+        <script src="script.js"></script>
+
+    </body>
+</html>
